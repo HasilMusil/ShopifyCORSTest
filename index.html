@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h3>CORS Test</h3>
+    <script>
+      fetch("https://www.shopify.com/__dux", {
+        method: "GET",
+        credentials: "include"
+      })
+      .then(res => res.text())
+      .then(data => {
+        document.body.innerHTML += "<pre>" + data + "</pre>";
+      })
+      .catch(err => {
+        console.error("CORS blocked:", err);
+      });
+    </script>
+  </body>
+</html>
